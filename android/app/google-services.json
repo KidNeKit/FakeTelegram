@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1014557113917",
+    "project_id": "fake-telegram-e48cc",
+    "storage_bucket": "fake-telegram-e48cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014557113917:android:157bb8e8dab53307f3f454",
+        "android_client_info": {
+          "package_name": "com.example.fake_telegram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUSUhdZJkQyxaQaA_vFwvrY6icdmTJAg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
