@@ -1,4 +1,4 @@
-import 'package:fake_telegram/screens/home_screen/home_screen.dart';
+import 'package:fake_telegram/presentation/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {

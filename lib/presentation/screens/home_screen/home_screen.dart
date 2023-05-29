@@ -45,8 +45,7 @@ class BottomNavBar extends StatelessWidget {
         height: 49,
         decoration: BoxDecoration(
           color: navBarColor,
-          border: const Border(
-              top: BorderSide(width: 0.5, color: Color(0xFFA6A6AA))),
+          border: Border(top: BorderSide(width: 0.5, color: dividerColor)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -84,7 +83,7 @@ class NavIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = _isSelected ? navBarSelected : navBarDisabled;
+    Color color = _isSelected ? blueSelectedColor : greyDisabledColor;
     return GestureDetector(
       onTap: () => context.read<NavigationCubit>().changeScreen(_index),
       child: Column(
