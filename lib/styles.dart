@@ -14,3 +14,24 @@ TextStyle headerLabel = const TextStyle(
   fontFamily: 'SF Pro',
   fontWeight: FontWeight.w600,
 );
+
+TextStyle chatNameStyle = const TextStyle(
+  fontSize: 16.0,
+  fontFamily: 'SF Pro',
+  fontWeight: FontWeight.w500,
+  color: Colors.black,
+);
+
+TextStyle chatGreyInfoStyle = const TextStyle(
+  fontSize: 14.0,
+  fontFamily: 'SF Pro',
+  fontWeight: FontWeight.w400,
+  color: Color(0xFF8E8E93),
+);
+
+TextStyle messagePreviewStyle = TextStyle(
+  fontSize: 15.0,
+  fontFamily: 'SF Pro',
+  fontWeight: FontWeight.w400,
+  color: messagePreviewColor,
+);
