@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../../remote_constants.dart';
 import '../../models/chat_model.dart';
 import '../base_chat_datasource.dart';
 
@@ -14,13 +15,14 @@ class ChatDatasource extends BaseChatDatasource {
   }
 
   @override
-  ChatModel getChatById(String chatId) {
-    // TODO: implement getChatById
-    throw UnimplementedError();
+  Future<ChatModel?> getChatById(String chatId) async {
+    var chatData =
+        await _firestore.collection(firebaseChatsPath).doc(chatId).get();
+    return chatData.exists ? ChatModel.fromJson(chatData.data()!) : null;
   }
 
   @override
-  List<ChatModel> getUserChats(String userId) {
+  Future<List<ChatModel>> getUserChats(String userId) async {
     // TODO: implement getUserChats
     throw UnimplementedError();
   }

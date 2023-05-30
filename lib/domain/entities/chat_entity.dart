@@ -1,7 +1,13 @@
 import 'message_entity.dart';
 
 class ChatEntity {
-  String? chatId;
+  String? _chatId;
   List<MessageEntity> messages = [];
   List<String> users = [];
+
+  ChatEntity({String? chatId}) : _chatId = chatId;
+
+  factory ChatEntity.fromJson(Map<String, dynamic> map) => ChatEntity(
+        chatId: map['chatId'],
+      );
 }
