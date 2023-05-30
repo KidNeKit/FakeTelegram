@@ -1,3 +1,4 @@
+import 'package:fake_telegram/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../styles.dart';
@@ -7,8 +8,18 @@ class ChatListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(),
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: const EdgeInsets.all(0),
+      itemBuilder: (ctx, index) => const ChatItem(),
+      itemCount: 10,
+      separatorBuilder: (ctx, index) => Divider(
+        height: 1.0,
+        indent: 79,
+        color: dividerColor,
+        thickness: 1.2,
+      ),
     );
   }
 }

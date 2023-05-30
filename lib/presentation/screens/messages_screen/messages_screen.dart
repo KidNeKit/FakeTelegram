@@ -1,6 +1,6 @@
-import 'package:fake_telegram/presentation/screens/messages_screen/chat_listview.dart';
 import 'package:flutter/material.dart';
 
+import 'chat_listview.dart';
 import 'messages_header.dart';
 import 'search_text_field.dart';
 
@@ -10,12 +10,19 @@ class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        MessagesHeader(),
-        SearchTextField(),
-        ChatItem(),
-        ChatItem(),
-        ChatItem(),
+      children: [
+        const MessagesHeader(),
+        Expanded(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: const [
+                SearchTextField(),
+                ChatListView(),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
