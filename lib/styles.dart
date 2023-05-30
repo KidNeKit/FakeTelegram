@@ -22,11 +22,11 @@ TextStyle chatNameStyle = const TextStyle(
   color: Colors.black,
 );
 
-TextStyle chatGreyInfoStyle = const TextStyle(
+TextStyle chatGreyInfoStyle = TextStyle(
   fontSize: 14.0,
   fontFamily: 'SF Pro',
   fontWeight: FontWeight.w400,
-  color: Color(0xFF8E8E93),
+  color: greyInfoColor,
 );
 
 TextStyle messagePreviewStyle = TextStyle(

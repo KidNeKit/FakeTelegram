@@ -1,5 +1,6 @@
-import 'package:fake_telegram/styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../../styles.dart';
 
 class MessagesHeader extends StatelessWidget {
   const MessagesHeader({super.key});

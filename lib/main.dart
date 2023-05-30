@@ -1,3 +1,4 @@
+import 'presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,11 +9,17 @@ import 'themes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  AppRouter appRouter = AppRouter();
+  runApp(MyApp(
+    appRouter: appRouter,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppRouter _appRouter;
+
+  const MyApp({required AppRouter appRouter, super.key})
+      : _appRouter = appRouter;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +31,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         home: const OnboardingScreen(),
         theme: themeData,
-        routes: {
-          HomeScreen.routeName: (context) => const HomeScreen(),
-        },
+        initialRoute: HomeScreen.routeName,
+        onGenerateRoute: _appRouter.onGenerateRoute,
       ),
     );
   }
