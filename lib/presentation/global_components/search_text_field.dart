@@ -1,9 +1,6 @@
-import 'dart:developer';
-
-import 'package:fake_telegram/styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../colors.dart';
+import '../../resources/styles.dart';
 
 class SearchTextField extends StatelessWidget {
   final Function() _onPressedFunc;

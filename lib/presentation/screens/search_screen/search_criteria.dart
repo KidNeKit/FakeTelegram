@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../colors.dart';
-import '../../../styles.dart';
+import '../../../resources/colors.dart';
+import '../../../resources/styles.dart';
 
 class SearchCriteria extends StatefulWidget {
   const SearchCriteria({super.key});

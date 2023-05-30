@@ -5,7 +5,7 @@ import '../remote/datasources/base_user_datasource.dart';
 class UserRepository extends BaseUserRepository {
   final BaseUserDatasource _userDatasource;
 
-  UserRepository({required BaseUserDatasource userDatasource})
+  UserRepository(BaseUserDatasource userDatasource)
       : _userDatasource = userDatasource;
 
   @override

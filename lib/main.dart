@@ -1,25 +1,23 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'di_container.dart';
 import 'presentation/cubits/cubit/navigation_cubit.dart';
 import 'presentation/router/app_router.dart';
 import 'presentation/screens/home_screen/home_screen.dart';
 import 'presentation/screens/onboarding_screen.dart';
-import 'themes.dart';
+import 'resources/themes.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppRouter appRouter = AppRouter();
-  runApp(MyApp(
-    appRouter: appRouter,
-  ));
+  await Firebase.initializeApp();
+  await initDI();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final AppRouter _appRouter;
-
-  const MyApp({required AppRouter appRouter, super.key})
-      : _appRouter = appRouter;
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +30,7 @@ class MyApp extends StatelessWidget {
         home: const OnboardingScreen(),
         theme: themeData,
         initialRoute: HomeScreen.routeName,
-        onGenerateRoute: _appRouter.onGenerateRoute,
+        onGenerateRoute: locator.get<AppRouter>().onGenerateRoute,
       ),
     );
   }

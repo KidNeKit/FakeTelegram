@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../colors.dart';
+import '../../../resources/colors.dart';
 import '../../cubits/cubit/navigation_cubit.dart';
 import '../contacts_screen/contacts_screen.dart';
 import '../messages_screen/messages_screen.dart';

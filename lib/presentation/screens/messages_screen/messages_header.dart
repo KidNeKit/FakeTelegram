@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../styles.dart';
+import '../../../resources/styles.dart';
 
 class MessagesHeader extends StatelessWidget {
   const MessagesHeader({super.key});

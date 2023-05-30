@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../colors.dart';
+import '../../../resources/colors.dart';
 import '../../global_components/search_text_field.dart';
 import '../search_screen/search_screen.dart';
 import 'chat_listview.dart';

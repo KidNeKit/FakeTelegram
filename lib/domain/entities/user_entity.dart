@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class UserEntity {
   String? _userId;
   String _phoneNumber;
@@ -33,4 +35,9 @@ class UserEntity {
         'phoneNumber': _phoneNumber,
         'login': _login,
       };
+
+  @override
+  String toString() {
+    return json.encode(this);
+  }
 }

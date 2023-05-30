@@ -13,7 +13,7 @@ class UserDatasource extends BaseUserDatasource {
   Future<List<UserModel>> getSuggestedUsersByLogin(String login) async {
     var users = await _firestore
         .collection(firebaseUsersPath)
-        .where('login', arrayContains: login)
+        .where('login', isGreaterThanOrEqualTo: login)
         .get();
     return users.docs.map((user) => UserModel.fromJson(user.data())).toList();
   }

@@ -1,7 +1,7 @@
-import 'package:fake_telegram/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../styles.dart';
+import '../../../resources/colors.dart';
+import '../../../resources/styles.dart';
 
 class ChatListView extends StatelessWidget {
   const ChatListView({super.key});
