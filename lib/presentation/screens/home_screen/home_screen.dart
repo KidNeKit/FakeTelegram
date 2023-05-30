@@ -27,6 +27,9 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: const BottomNavBar(),
     );
   }
+
+  static Route getMaterialPageRoute() =>
+      MaterialPageRoute(builder: (_) => const HomeScreen());
 }
 
 class BottomNavBar extends StatelessWidget {

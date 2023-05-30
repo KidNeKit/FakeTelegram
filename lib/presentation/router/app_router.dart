@@ -7,11 +7,11 @@ class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case HomeScreen.routeName:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return HomeScreen.getMaterialPageRoute();
       case SearchScreen.routeName:
-        return MaterialPageRoute(builder: (_) => const SearchScreen());
+        return SearchScreen.getMaterialPageRoute();
       default:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return HomeScreen.getMaterialPageRoute();
     }
   }
 }

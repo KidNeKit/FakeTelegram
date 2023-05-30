@@ -1,9 +1,12 @@
-import 'dart:developer';
-
-import 'package:fake_telegram/colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../colors.dart';
+import '../../../data/remote/datasources/firebase/user_datasource.dart';
+import '../../../data/repositories/user_repository.dart';
 import '../../../styles.dart';
+import '../../blocs/searcher/searcher_bloc.dart';
 import '../../global_components/search_text_field.dart';
 import 'search_criteria.dart';
 
@@ -29,7 +32,7 @@ class SearchScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: SearchTextField(onPressedFunc: () {
-                      log('kekekekek');
+                      //context.read<SearcherBloc>().add(UserSearched('Mercury'));
                     }),
                   ),
                   TextButton(
@@ -47,4 +50,13 @@ class SearchScreen extends StatelessWidget {
       ),
     );
   }
+
+  static Route getMaterialPageRoute() => MaterialPageRoute(
+        builder: (_) => BlocProvider(
+          create: (context) => SearcherBloc(
+              userRepository: UserRepository(
+                  userDatasource: UserDatasource(FirebaseFirestore.instance))),
+          child: const SearchScreen(),
+        ),
+      );
 }

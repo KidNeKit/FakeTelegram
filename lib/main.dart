@@ -1,8 +1,8 @@
-import 'presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'presentation/cubits/cubit/navigation_cubit.dart';
+import 'presentation/router/app_router.dart';
 import 'presentation/screens/home_screen/home_screen.dart';
 import 'presentation/screens/onboarding_screen.dart';
 import 'themes.dart';
