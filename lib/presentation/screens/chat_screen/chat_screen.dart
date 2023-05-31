@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../blocs/active_chat/active_chat_bloc.dart';
 import 'chat_app_bar.dart';
+import 'chat_body.dart';
 import 'chat_bottom_bar.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -15,9 +16,9 @@ class ChatScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           body: Column(
-            children: [
+            children: const [
               ChatAppBar(),
-              Expanded(child: Container()),
+              ChatBody(),
               ChatBottomBar(),
             ],
           ),
