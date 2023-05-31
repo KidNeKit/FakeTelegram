@@ -1,5 +1,6 @@
 import 'package:fake_telegram/di_container.dart';
 import 'package:fake_telegram/domain/repositories/base_user_repository.dart';
+import 'package:fake_telegram/presentation/screens/search_screen/search_results.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,33 +19,44 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          decoration: BoxDecoration(
-            color: navBarColor,
-            border: Border(bottom: BorderSide(color: dividerColor, width: 0.5)),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 5.0),
-              Row(
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: navBarColor,
+                border:
+                    Border(bottom: BorderSide(color: dividerColor, width: 0.5)),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Expanded(
-                    child: SearchTextField(onPressedFunc: () {
-                      context.read<SearcherBloc>().add(UserSearched('KidNe'));
-                    }),
+                  const SizedBox(height: 5.0),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SearchTextField(onPressedFunc: () {
+                          context
+                              .read<SearcherBloc>()
+                              .add(UserSearched('KidNe'));
+                        }),
+                      ),
+                      TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: Text(
+                            'Отмена',
+                            style: blueHeaderButton,
+                          )),
+                    ],
                   ),
-                  TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: Text(
-                        'Отмена',
-                        style: blueHeaderButton,
-                      )),
+                  const SearchCriteria(),
                 ],
               ),
-              const SearchCriteria(),
-            ],
-          ),
+            ),
+            const SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: SearchResults(),
+            ),
+          ],
         ),
       ),
     );
