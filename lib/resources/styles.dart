@@ -35,3 +35,10 @@ TextStyle messagePreviewStyle = TextStyle(
   fontWeight: FontWeight.w400,
   color: messagePreviewColor,
 );
+
+TextStyle onlineStatus = const TextStyle(
+  fontSize: 13.0,
+  fontFamily: 'SF Pro',
+  fontWeight: FontWeight.w400,
+  color: Color(0xFF787878),
+);

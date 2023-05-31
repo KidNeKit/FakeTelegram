@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fake_telegram/presentation/blocs/active_chat/active_chat_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 
@@ -40,6 +41,7 @@ Future<void> initDI() async {
   //blocs
   locator.registerLazySingleton<SearcherBloc>(
       () => SearcherBloc(userRepository: locator.call()));
+  locator.registerLazySingleton<ActiveChatBloc>(() => ActiveChatBloc());
 
   //cubits
   locator.registerLazySingleton<NavigationCubit>(() => NavigationCubit());
