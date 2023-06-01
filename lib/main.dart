@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => NavigationCubit()),
-        BlocProvider(create: (_) => ActiveChatBloc()),
+        BlocProvider(create: (_) => ActiveChatBloc(locator.call())),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

@@ -7,6 +7,8 @@ class ChatEntity {
 
   ChatEntity({String? chatId}) : _chatId = chatId;
 
+  String? get chatId => _chatId;
+
   factory ChatEntity.fromJson(Map<String, dynamic> map) => ChatEntity(
         chatId: map['chatId'],
       );

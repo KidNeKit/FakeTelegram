@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fake_telegram/data/remote_constants.dart';
 
 import '../../../../domain/entities/message_entity.dart';
 import '../../models/message_model.dart';
@@ -29,6 +30,16 @@ class MessageDatasource extends BaseMessageDatasource {
   @override
   MessageModel updateMessage(MessageEntity message) {
     // TODO: implement updateMessage
+    throw UnimplementedError();
+  }
+
+  @override
+  Stream<List<MessageModel>> getMessagesStreamByChatId(String chatId) {
+    _firestore
+        .collection(firebaseChatsPath)
+        .doc(chatId)
+        .collection('')
+        .snapshots();
     throw UnimplementedError();
   }
 }

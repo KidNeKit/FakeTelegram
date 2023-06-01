@@ -26,4 +26,9 @@ class MessageRepository extends BaseMessageRepository {
   MessageEntity updateMessage(MessageEntity message) {
     return _messageDatasource.updateMessage(message);
   }
+
+  @override
+  Stream<List<MessageEntity>> getMessagesStreamByChatId(String chatId) {
+    return _messageDatasource.getMessagesStreamByChatId(chatId);
+  }
 }
