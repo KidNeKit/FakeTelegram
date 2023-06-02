@@ -31,4 +31,14 @@ class ChatDatasource extends BaseChatDatasource {
   void pinChatById(String chatId) {
     // TODO: implement pinChatById
   }
+
+  @override
+  Stream<List<ChatModel>> getChatsStream(String userId) {
+    return _firestore
+        .collection(firebaseChatsPath)
+        .where('members', arrayContains: userId)
+        .snapshots()
+        .map((event) =>
+            event.docs.map((doc) => ChatModel.fromJson(doc.data())).toList());
+  }
 }

@@ -5,4 +5,5 @@ abstract class BaseChatDatasource {
   Future<List<ChatModel>> getUserChats(String userId);
   void deleteChatById(String chatId);
   void pinChatById(String chatId);
+  Stream<List<ChatModel>> getChatsStream(String userId);
 }

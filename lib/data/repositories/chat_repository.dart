@@ -21,4 +21,8 @@ class ChatRepository extends BaseChatRepository {
 
   @override
   void pinChatById(String chatId) => _chatDatasource.pinChatById(chatId);
+
+  @override
+  Stream<List<ChatEntity>> getChatsStream(String userId) =>
+      _chatDatasource.getChatsStream(userId);
 }

@@ -5,4 +5,5 @@ abstract class BaseChatRepository {
   Future<List<ChatEntity>> getUserChats(String userId);
   void deleteChatById(String chatId);
   void pinChatById(String chatId);
+  Stream<List<ChatEntity>> getChatsStream(String userId);
 }
