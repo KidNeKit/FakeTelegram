@@ -1,11 +1,9 @@
-import 'dart:convert';
-
 import 'message_entity.dart';
 
 class ChatEntity {
-  String? _chatId;
   final List<MessageEntity> _messages;
   final List<String> _members;
+  String? _chatId;
 
   ChatEntity({
     String? chatId,
@@ -16,13 +14,18 @@ class ChatEntity {
         _members = members ?? [];
 
   String? get chatId => _chatId;
+  List<String> get members => _members;
+  List<MessageEntity> get messages => _messages;
 
-  factory ChatEntity.fromJson(Map<String, dynamic> map) => ChatEntity(
-        chatId: map['chatId'],
-      );
+  set updateChatId(String chatId) => _chatId = chatId;
+
+  Map<String, dynamic> toJson() => {
+        'chatId': _chatId,
+        'members': _members,
+      };
 
   @override
   String toString() {
-    return {'chatId': _chatId}.toString();
+    return toJson().toString();
   }
 }
