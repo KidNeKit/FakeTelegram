@@ -1,31 +1,46 @@
+import 'dart:developer';
+
+import 'package:fake_telegram/domain/entities/chat_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../resources/colors.dart';
 import '../../../resources/styles.dart';
+import '../../blocs/chats/chats_bloc.dart';
 
 class ChatListView extends StatelessWidget {
   const ChatListView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.all(0),
-      itemBuilder: (ctx, index) => const ChatItem(),
-      itemCount: 10,
-      separatorBuilder: (ctx, index) => Divider(
-        height: 1.0,
-        indent: 79,
-        color: dividerColor,
-        thickness: 1.2,
-      ),
+    return BlocBuilder<ChatsBloc, ChatsState>(
+      builder: (context, state) {
+        if (state is ChatsLoadingState) {
+          return const CircularProgressIndicator();
+        } else if (state is ChatsLoadedState) {
+          return ListView.separated(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.all(0),
+            itemBuilder: (ctx, index) => ChatItem(chat: state.chats[index]),
+            itemCount: state.chats.length,
+            separatorBuilder: (ctx, index) => Divider(
+              height: 1.0,
+              indent: 79,
+              color: dividerColor,
+              thickness: 1.2,
+            ),
+          );
+        }
+        return Container();
+      },
     );
   }
 }
 
 class ChatItem extends StatelessWidget {
-  const ChatItem({super.key});
+  final ChatEntity chat;
+  const ChatItem({required this.chat, super.key});
 
   @override
   Widget build(BuildContext context) {
