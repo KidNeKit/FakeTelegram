@@ -6,5 +6,5 @@ abstract class BaseMessageDatasource {
   MessageModel sendMessage(MessageEntity message);
   MessageModel updateMessage(MessageEntity message);
   void deleteMessageById(String id);
-  List<MessageModel> getMessagesByChatId(String chatId);
+  Future<List<MessageModel>> getMessagesByChatId(String chatId);
 }

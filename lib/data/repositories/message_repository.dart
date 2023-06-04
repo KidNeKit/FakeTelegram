@@ -13,7 +13,7 @@ class MessageRepository extends BaseMessageRepository {
   }
 
   @override
-  List<MessageEntity> getMessagesByChatId(String chatId) {
+  Future<List<MessageEntity>> getMessagesByChatId(String chatId) {
     return _messageDatasource.getMessagesByChatId(chatId);
   }
 

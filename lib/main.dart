@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => NavigationCubit()),
         BlocProvider(create: (_) => ActiveChatBloc(locator.call())),
         BlocProvider(
-            create: (_) => ChatsBloc(locator.call())..add(ChatsUpdated()),
+            create: (_) =>
+                ChatsBloc(locator.call(), locator.call())..add(ChatsUpdated()),
             lazy: false),
       ],
       child: MaterialApp(

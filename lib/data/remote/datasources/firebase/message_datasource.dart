@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fake_telegram/data/remote_constants.dart';
 
@@ -16,9 +18,15 @@ class MessageDatasource extends BaseMessageDatasource {
   }
 
   @override
-  List<MessageModel> getMessagesByChatId(String chatId) {
-    // TODO: implement getMessagesByChatId
-    throw UnimplementedError();
+  Future<List<MessageModel>> getMessagesByChatId(String chatId) async {
+    var messagesRef = await _firestore
+        .collection(firebaseChatsPath)
+        .doc(chatId)
+        .collection(firebaseMessagesPath)
+        .get();
+    return messagesRef.docs
+        .map((message) => MessageModel.fromJson(message.data()))
+        .toList();
   }
 
   @override

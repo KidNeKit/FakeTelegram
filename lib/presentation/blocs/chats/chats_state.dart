@@ -7,12 +7,12 @@ abstract class ChatsState extends Equatable {
   List<Object> get props => [];
 }
 
-class ChatsLoading extends ChatsState {}
+class ChatsLoadingState extends ChatsState {}
 
-class ChatsLoaded extends ChatsState {
+class ChatsLoadedState extends ChatsState {
   final List<ChatEntity> chats;
 
-  const ChatsLoaded({required this.chats});
+  const ChatsLoadedState({required this.chats});
 
   @override
   List<Object> get props => [chats];
