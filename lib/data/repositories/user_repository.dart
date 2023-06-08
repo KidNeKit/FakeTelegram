@@ -15,4 +15,24 @@ class UserRepository extends BaseUserRepository {
   @override
   Future<UserEntity?> getUserByUserId(String userId) async =>
       await _userDatasource.getUserByUserId(userId);
+
+  @override
+  Stream<UserEntity?> get currentUser => _userDatasource.currentUser;
+
+  @override
+  Future<void> signInWithEmailAndPassword(
+          String email, String password) async =>
+      await _userDatasource.signInWithEmailAndPassword(email, password);
+
+  @override
+  Future<void> signOut() async => await _userDatasource.signOut();
+
+  @override
+  Future<void> signUpWithEmailAndPassword(
+          String email, String password) async =>
+      await _userDatasource.signUpWithEmailAndPassword(email, password);
+
+  @override
+  Future<UserEntity?> getUserByEmail(String email) async =>
+      _userDatasource.getUserByEmail(email);
 }

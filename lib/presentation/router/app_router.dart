@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../screens/chat_screen/chat_screen.dart';
 import '../screens/home_screen/home_screen.dart';
+import '../screens/login_screen/login_screen.dart';
 import '../screens/search_screen/search_screen.dart';
 
 class AppRouter {
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case LoginScreen.routeName:
+        return LoginScreen.getMaterialPageRoute();
       case HomeScreen.routeName:
         return HomeScreen.getMaterialPageRoute();
       case SearchScreen.routeName:
