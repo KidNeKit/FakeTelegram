@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../di_container.dart';
 import '../../../domain/repositories/base_user_repository.dart';
 import '../../blocs/auth/auth_bloc.dart';
+import '../../blocs/chats/chats_bloc.dart';
 import '../../cubits/login/login_cubit.dart';
 import '../home_screen/home_screen.dart';
 
@@ -17,6 +20,7 @@ class LoginScreen extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state.user != null) {
+          context.read<ChatsBloc>().add(ChatsUpdated(state.user!.userId!));
           Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
         }
       },

@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import '../../../resources/colors.dart';
 import '../../global_components/search_text_field.dart';
 import '../search_screen/search_screen.dart';
-import 'chat_listview.dart';
-import 'messages_header.dart';
+import 'components/chats_listview.dart';
+import 'components/chats_header.dart';
 
-class MessagesScreen extends StatelessWidget {
-  const MessagesScreen({super.key});
+class ChatsScreen extends StatelessWidget {
+  const ChatsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const MessagesHeader(),
+        const ChatsHeader(),
         Expanded(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
@@ -31,7 +31,7 @@ class MessagesScreen extends StatelessWidget {
                         Navigator.of(context).pushNamed(SearchScreen.routeName),
                   ),
                 ),
-                const ChatListView(),
+                const ChatsListView(),
               ],
             ),
           ),

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,24 +26,19 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
   }
 
   void _chatsUpdated(ChatsUpdated event, Emitter<ChatsState> emit) {
-    log('Updating chats');
     emit(ChatsLoadingState());
     _chatsSubscription?.cancel();
     _chatsSubscription =
-        _chatRepository.getChatsStream('1111').listen((chats) async {
-      log('chats listener: $chats');
-
+        _chatRepository.getChatsStream(event.userId).listen((chats) async {
       for (var chat in chats) {
         chat.updateMessages =
             await _messageRepository.getMessagesByChatId(chat.chatId!);
       }
-
       add(ChatsFetched(chats: chats));
     });
   }
 
   void _chatsFetched(ChatsFetched event, Emitter<ChatsState> emit) {
-    log('Chats fetched: ${event.chats}');
     emit(ChatsLoadedState(chats: event.chats));
   }
 

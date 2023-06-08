@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../resources/colors.dart';
 import '../../cubits/navigation/navigation_cubit.dart';
 import '../contacts_screen/contacts_screen.dart';
-import '../messages_screen/messages_screen.dart';
+import '../chats_screen/chats_screen.dart';
 import '../settings_screen/settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           index: state.index,
           children: const [
             ContactsScreen(),
-            MessagesScreen(),
+            ChatsScreen(),
             SettingsScreen(),
           ],
         ),

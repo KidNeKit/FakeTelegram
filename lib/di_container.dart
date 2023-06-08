@@ -42,13 +42,12 @@ Future<void> initDI() async {
       () => MessageRepository(locator.call()));
 
   //blocs
-  locator.registerLazySingleton<SearcherBloc>(
+  locator.registerFactory<SearcherBloc>(
       () => SearcherBloc(userRepository: locator.call()));
-  locator.registerLazySingleton<ActiveChatBloc>(
-      () => ActiveChatBloc(locator.call()));
-  locator.registerLazySingleton<ChatsBloc>(
+  locator.registerFactory<ActiveChatBloc>(() => ActiveChatBloc(locator.call()));
+  locator.registerFactory<ChatsBloc>(
       () => ChatsBloc(locator.call(), locator.call()));
-  locator.registerLazySingleton<AuthBloc>(() => AuthBloc(locator.call()));
+  locator.registerFactory<AuthBloc>(() => AuthBloc(locator.call()));
 
   //cubits
   locator.registerLazySingleton<NavigationCubit>(() => NavigationCubit());

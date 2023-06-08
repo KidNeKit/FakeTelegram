@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../resources/styles.dart';
+import '../../../../resources/styles.dart';
 
-class MessagesHeader extends StatelessWidget {
-  const MessagesHeader({super.key});
+class ChatsHeader extends StatelessWidget {
+  const ChatsHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,14 @@ abstract class ChatsEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class ChatsUpdated extends ChatsEvent {}
+class ChatsUpdated extends ChatsEvent {
+  final String userId;
+
+  const ChatsUpdated(this.userId);
+
+  @override
+  List<Object> get props => [userId];
+}
 
 class ChatsFetched extends ChatsEvent {
   final List<ChatEntity> chats;

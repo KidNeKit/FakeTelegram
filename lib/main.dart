@@ -26,16 +26,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => NavigationCubit()),
-        BlocProvider(create: (_) => ActiveChatBloc(locator.call())),
         BlocProvider(
           create: (_) => AuthBloc(locator.call()),
           lazy: false,
         ),
-        BlocProvider(
-            create: (_) =>
-                ChatsBloc(locator.call(), locator.call())..add(ChatsUpdated()),
-            lazy: false),
+        BlocProvider(create: (_) => NavigationCubit()),
+        BlocProvider(create: (_) => ActiveChatBloc(locator.call())),
+        BlocProvider(create: (_) => ChatsBloc(locator.call(), locator.call())),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

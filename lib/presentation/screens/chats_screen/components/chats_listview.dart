@@ -1,15 +1,13 @@
-import 'dart:developer';
-
-import 'package:fake_telegram/domain/entities/chat_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../resources/colors.dart';
-import '../../../resources/styles.dart';
-import '../../blocs/chats/chats_bloc.dart';
+import '../../../../domain/entities/chat_entity.dart';
+import '../../../../resources/colors.dart';
+import '../../../../resources/styles.dart';
+import '../../../blocs/chats/chats_bloc.dart';
 
-class ChatListView extends StatelessWidget {
-  const ChatListView({super.key});
+class ChatsListView extends StatelessWidget {
+  const ChatsListView({super.key});
 
   @override
   Widget build(BuildContext context) {
