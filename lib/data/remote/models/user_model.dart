@@ -7,6 +7,10 @@ class UserModel extends UserEntity {
       required super.phoneNumber,
       super.userId});
 
+  UserModel.nameWithAvatar({
+    required String username,
+  }) : super.nameWithAvatar(username: username);
+
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       login: json['login'],

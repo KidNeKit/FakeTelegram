@@ -27,6 +27,10 @@ class ChatEntity {
     return messages.last;
   }
 
+  String getChatPreview(String userId) {
+    return members.firstWhere((element) => element != userId);
+  }
+
   Map<String, dynamic> toJson() => {
         'chatId': _chatId,
         'members': _members,

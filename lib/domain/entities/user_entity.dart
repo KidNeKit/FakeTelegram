@@ -2,8 +2,8 @@ import 'dart:convert';
 
 class UserEntity {
   String? _userId;
-  String _phoneNumber;
-  String _login;
+  String? _phoneNumber;
+  String? _login;
   String _username;
   //String userPhoto;
 
@@ -17,6 +17,8 @@ class UserEntity {
         _phoneNumber = phoneNumber,
         _username = username;
 
+  UserEntity.nameWithAvatar({required String username}) : _username = username;
+
   factory UserEntity.fromJson(Map<String, dynamic> map) => UserEntity(
         userId: map['userId'],
         phoneNumber: map['phoneNumber'],
@@ -25,9 +27,9 @@ class UserEntity {
       );
 
   String? get userId => _userId;
-  String get phoneNumber => _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
   String get username => _username;
-  String get login => _login;
+  String get login => _login ?? '';
 
   Map<String, dynamic> toJson() => {
         'userId': _userId,

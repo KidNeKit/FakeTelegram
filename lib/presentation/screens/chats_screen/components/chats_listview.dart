@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../domain/entities/chat_entity.dart';
 import '../../../../resources/colors.dart';
 import '../../../../resources/styles.dart';
+import '../../../blocs/auth/auth_bloc.dart';
 import '../../../blocs/chats/chats_bloc.dart';
 
 class ChatsListView extends StatelessWidget {
@@ -63,7 +64,8 @@ class ChatItem extends StatelessWidget {
                   children: [
                     Expanded(
                         child: Text(
-                      'Name',
+                      chat.getChatPreview(
+                          context.read<AuthBloc>().state.user!.userId!),
                       style: chatNameStyle,
                       overflow: TextOverflow.ellipsis,
                     )),
