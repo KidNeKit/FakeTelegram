@@ -1,7 +1,9 @@
+import 'package:fake_telegram/presentation/global_components/custom_text_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../resources/colors.dart';
 import '../../../../resources/styles.dart';
+import '../../update_profile_screen/update_profile_screen.dart';
 
 class SettingsHeader extends StatelessWidget {
   const SettingsHeader({super.key});
@@ -15,7 +17,11 @@ class SettingsHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const Icon(Icons.qr_code),
-            Text('Изм.', style: blueHeaderButton),
+            CustomTextButton(
+              onTap: () => Navigator.of(context)
+                  .pushNamed(UpdateProfileScreen.routeName),
+              text: 'Изм.',
+            ),
           ],
         ),
         Align(
