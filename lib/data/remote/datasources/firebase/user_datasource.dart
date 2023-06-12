@@ -41,14 +41,15 @@ class UserDatasource extends BaseUserDatasource {
     try {
       await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) =>
-              _firestore.collection('users').doc(value.user!.uid).set({
-                'phoneNumber': email,
-                'email': email,
-                'login': value.user!.uid,
-                'userId': value.user!.uid,
-                'username': 'guest_${value.user!.uid}',
-              }));
+          .then((value) => _firestore
+              .collection('users')
+              .doc(value.user!.uid)
+              .set(UserModel(
+                      login: value.user!.uid,
+                      phoneNumber: email,
+                      name: 'created_user',
+                      userId: value.user!.uid)
+                  .toJson()));
     } catch (e) {
       log('Registration error: $e');
       rethrow;

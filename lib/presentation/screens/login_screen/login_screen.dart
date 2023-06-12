@@ -30,10 +30,10 @@ class LoginScreen extends StatelessWidget {
             Spacer(),
             TextField(
                 onChanged: (value) =>
-                    locator.get<LoginCubit>().changeEmail(value)),
+                    context.read<LoginCubit>().changeEmail(value)),
             TextField(
                 onChanged: (value) =>
-                    locator.get<LoginCubit>().changePassword(value)),
+                    context.read<LoginCubit>().changePassword(value)),
             ElevatedButton(
               onPressed: () =>
                   context.read<LoginCubit>().signInWithEmailAndPassword(),

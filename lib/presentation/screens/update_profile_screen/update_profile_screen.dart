@@ -1,4 +1,3 @@
-import 'package:fake_telegram/presentation/screens/update_profile_screen/components/settings_text_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../../resources/colors.dart';
@@ -6,6 +5,7 @@ import '../../../resources/styles.dart';
 import '../../global_components/custom_text_button.dart';
 import 'components/settings_container.dart';
 import 'components/settings_text.dart';
+import 'components/settings_text_field.dart';
 
 class UpdateProfileScreen extends StatelessWidget {
   static const String routeName = '/update-profile';
@@ -91,7 +91,7 @@ class UpdateProfileScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const SettingsText('Сменить номер'),
+                        const SettingsText('Имя пользователя'),
                         SettingsText('@KidNeKit', color: greyInfoColor),
                       ],
                     ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,6 +26,7 @@ class LoginCubit extends Cubit<LoginState> {
   void signInWithEmailAndPassword() async {
     UserEntity? user = await _authRepository.getUserByEmail(state.email);
     if (user == null) {
+      log(state.toString());
       _authRepository.signUpWithEmailAndPassword(state.email, state.password);
     } else {
       _authRepository.signInWithEmailAndPassword(state.email, state.password);

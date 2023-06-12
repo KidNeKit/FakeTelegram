@@ -28,8 +28,8 @@ class SearchResults extends StatelessWidget {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (_, index) => SearchedPeopleItem(
-                  userName: state.users[index].username,
-                  login: state.users[index].login,
+                  userName: state.users[index].name!,
+                  login: state.users[index].login!,
                 ),
                 itemCount: state.users.length,
                 separatorBuilder: (_, index) => Divider(
