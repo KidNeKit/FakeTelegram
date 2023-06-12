@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../resources/colors.dart';
 import '../../../resources/styles.dart';
+import '../../blocs/auth/auth_bloc.dart';
 import '../../global_components/custom_text_button.dart';
 import 'components/settings_container.dart';
 import 'components/settings_text.dart';
@@ -98,15 +100,7 @@ class UpdateProfileScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 30.0),
-                const SettingsContainer(
-                  children: [
-                    SettingsText(
-                      'Выйти',
-                      textAlign: TextAlign.center,
-                      color: Colors.red,
-                    ),
-                  ],
-                ),
+                const LogoutButton(),
                 const SizedBox(height: 30.0),
               ],
             ),
@@ -118,4 +112,28 @@ class UpdateProfileScreen extends StatelessWidget {
 
   static Route getMaterialPageRoute() =>
       MaterialPageRoute(builder: (_) => const UpdateProfileScreen());
+}
+
+class LogoutButton extends StatelessWidget {
+  const LogoutButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<AuthBloc, AuthState>(
+      listener: (_, state) => Navigator.of(context)
+          .pushNamedAndRemoveUntil('/login', (route) => false),
+      child: InkWell(
+        onTap: () => context.read<AuthBloc>().add(LogoutRequested()),
+        child: const SettingsContainer(
+          children: [
+            SettingsText(
+              'Выйти',
+              textAlign: TextAlign.center,
+              color: Colors.red,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

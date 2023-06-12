@@ -7,6 +7,7 @@ class UserEntity {
   String _name;
   String? _surname;
   String? _about;
+  String? _email;
   //String? userPhoto;
 
   UserEntity({
@@ -14,6 +15,7 @@ class UserEntity {
     required String phoneNumber,
     required String login,
     required String name,
+    String? email,
     String? surname,
     String? about,
   })  : _userId = userId,
@@ -21,7 +23,8 @@ class UserEntity {
         _phoneNumber = phoneNumber,
         _name = name,
         _surname = surname,
-        _about = about;
+        _about = about,
+        _email = email;
 
   UserEntity.preview(
       {required String name, required String userId, String? surname})
@@ -36,6 +39,7 @@ class UserEntity {
         name: map['name'],
         surname: map['surname'],
         about: map['about'],
+        email: map['email'],
       );
 
   String? get userId => _userId;
@@ -50,6 +54,7 @@ class UserEntity {
         'about': _about,
         'phoneNumber': _phoneNumber,
         'login': _login,
+        'email': _email,
       };
 
   Map<String, dynamic> toPreviewJson() => {
