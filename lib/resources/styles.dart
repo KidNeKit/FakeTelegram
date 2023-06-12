@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
+TextStyle settingsShownName = const TextStyle(
+  fontSize: 22,
+  fontFamily: 'SF Pro',
+  fontWeight: FontWeight.w500,
+  color: Colors.black,
+);
+
 TextStyle blueHeaderButton = TextStyle(
   fontSize: 17,
   fontFamily: 'SF Pro',
